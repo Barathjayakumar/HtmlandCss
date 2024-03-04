@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style>
+*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        color: #303433;
+    }
+    
+    
+    body{
+        min-height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h4{
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+    .login-container{
+        max-width: 450px;
+        padding: 24px;
+        display: flex;
+        flex-direction: center;
+        align-items: center;
+    }
+    .title{
+        text-transform: uppercase;
+        font-size: 3em;
+        font-weight:bold;
+        text-align: center;
+        letter-spacing:1px;
+    }
+  
+    .welcome-message{
+        text-align: center;
+        font-size: 1.8em;
+        line-height: 28px;
+        margin-bottom: 30px;
+        color: #696969;
+    }
+    
+    .login-form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .form-control{
+        width: 100%;
+        position: relative;
+        margin-bottom: 24px;
+    }
+    input,button{
+        border: none;
+        outline:none;
+       
+        border-radius: 30px;
+        font-size: 1.1em;
+
+    }
+    input{
+        width: 100%;
+        background:#e6e6e6;
+        color:black;
+        letter-spacing:2px;
+        padding: 17px 20px;
+        transition: 3s;
+        margin: 7px;
+    }
+     input:focus{
+        border-color:dodgerblue;
+        box-shadow:0 0 8px 0 dodgerblue;
+     }
+    
+    button.submit{
+        color:white;
+        padding: 14px 87px;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight:bold;
+        background-color: #6465f9;
+        transition: opacity 0.4s;
+        cursor: pointer;
+        margin-top: 25px;
+    
+    }
+    @media (max-width:980px) {
+        body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .side{ display: none;}
+
+     
+    }
+    
+        
+    
+    
+</style>
+<body>
+
+    <section class="side">
+        <img src="https://img.freepik.com/premium-vector/online-registration-sign-up-concept-with-man-character_268404-98.jpg?w=2000" alt="" width="120%">
+       
+           </section>
+           <section class="main">
+               <div class="login-container">
+                   
+                   <form class="login-form" method="post" name="myForm" id="myForm" action="#" autocomplete="off">
+                       <p class="welcome-message title">Register</p>
+                       <h4>Please fill in this form to create an account.</h4><br>
+                       
+                       <div class="input-icons">
+                       <div class="form-control">
+                
+                        <input type="text" id="name" name="name" aria-describedby="name-format" placeholder="Name"> <span class="error"><p id="name_error" style= "margin-top:5px ;text-align:center ;color: red;"></p></span>
+                        
+                        <input type="email" id="email" name="email" placeholder="Email"> <span class="error"><p id="email_error" style="margin-top:5px ;text-align:center ; color:red;"></p></span>
+                     
+                        <input type="password" id="password" name="password" placeholder="password"> <span class="error"><p id="password_error" style= "margin-top:5px ;text-align:center  ;color:red;"></p></span>
+                     
+                        <input type="password" name="password1" id="password1" placeholder="Conform password"> <span class="error"><p id="password1_error" style="margin-top:5px ;text-align:center  ;color:red;"></p></span>
+                    
+                        <button class="submit" type="submit" value="submit">Register</button>
+                    </form>
+
+<script type="text/javascript">
+	document.getElementById("myForm").onsubmit = function () {
+    var name = document.forms["myForm"]["name"].value;
+    var email= document.forms["myForm"]["email"].value;
+    var psw = document.forms["myForm"]["password"].value;
+    var psw2= document.forms["myForm"]["password1"].value;
+
+
+    
+
+    if (name == null || name == "") {
+        nameError = "Please enter your name";
+        document.getElementById("name_error").innerHTML = nameError;
+        submit = false;
+    }
+
+    if (email== null || email == "") {
+        emailError = "Please enter your email";
+        document.getElementById("email_error").innerHTML = emailError;
+        submit = false;
+    }
+
+    if (psw == null || psw == "") {
+        passwordError = "Please enter your password";
+        document.getElementById("password_error").innerHTML = passwordError;
+        submit = false;
+    }
+    
+    if (psw2 == null || psw2 == "") {
+        password1Error = "Please enter your password";
+        document.getElementById("password1_error").innerHTML = password1Error;
+        submit = false;
+    }
+    if (psw != psw2 ) {
+        passwordError = "Please enter same password";
+        document.getElementById("password_error").innerHTML = passwordError;
+        submit = false;
+    }
+    return submit;
+}
+
+function removeWarning() {
+    document.getElementById(this.id + "_error").innerHTML = "";
+}
+
+document.getElementById("name").onkeyup = removeWarning;
+document.getElementById("email").onkeyup = removeWarning;
+document.getElementById("password").onkeyup = removeWarning;
+document.getElementById("password1").onkeyup = removeWarning;
+
+</script>
+</body>
+</html>
